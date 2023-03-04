@@ -1,15 +1,17 @@
 package io.oferto.productlandautomationtest;
 
+import java.time.Duration;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import io.oferto.productlandautomationtest.views.LoginPage;
+import io.oferto.productlandautomationtest.views.LoginView;
 
 @SpringBootTest
-public class LoginPageTest {
+public class LoginPageAsManagerTest {
 	@Value("${app.url}")
 	private String appUrl;
 	
@@ -17,14 +19,14 @@ public class LoginPageTest {
 	private WebDriver webDriver;
 	
 	@Autowired
-	private LoginPage loginView;
+	private LoginView loginView;
 		
 	@Test
-	public void loginManagerUser() {
+	public void login() {
+		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		webDriver.navigate().to(appUrl);
 		
-		loginView.login("manager", "password");
-		
+		loginView.login("manager", "password");		
 		loginView.clickLogin();
 	}
 }

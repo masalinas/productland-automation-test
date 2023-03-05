@@ -2,46 +2,12 @@ package io.oferto.productlandautomationtest.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.time.Duration;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.oferto.productlandautomationtest.ui.page.LoginPage;
 import io.oferto.productlandautomationtest.ui.page.MainPage;
 
-@SpringBootTest
-public class LoginUsersPageTest {
-	
-	@Value("${app.url}")
-	private String appUrl;
-	
-	//@Autowired
-	private WebDriver webDriver;
-	
-	//@Autowired
-	//private LoginPage loginView;
-	
-	//@Autowired
-	//private MainPage mainPage;
-	
-    @BeforeEach
-    void setupTest() {
-    	webDriver = WebDriverManager.chromedriver().create();
-    	webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
+public class LoginUsersPageTest extends BasePageTest {
 
-    @AfterEach
-    void teardown() {
-    	webDriver.quit();
-    }
-	
 	@Test
 	public void loginAsManager() {
 		webDriver.get(appUrl);	

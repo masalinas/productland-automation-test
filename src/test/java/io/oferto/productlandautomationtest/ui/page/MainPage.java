@@ -1,4 +1,4 @@
-package io.oferto.productlandautomationtest.page;
+package io.oferto.productlandautomationtest.ui.page;
 
 import javax.annotation.PostConstruct;
 

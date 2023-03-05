@@ -1,4 +1,4 @@
-package io.oferto.productlandautomationtest;
+package io.oferto.productlandautomationtest.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.oferto.productlandautomationtest.page.LoginPage;
-import io.oferto.productlandautomationtest.page.MainPage;
+import io.oferto.productlandautomationtest.ui.page.LoginPage;
+import io.oferto.productlandautomationtest.ui.page.MainPage;
 
 @SpringBootTest
 public class LoginUsersPageTest {

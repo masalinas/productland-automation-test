@@ -13,7 +13,6 @@ public class LoginUsersPageTest extends BasePageTest {
 		webDriver.get(appUrl);	
 		
 		LoginPage loginView = new LoginPage(webDriver);
-				
 		loginView.login("manager", "password");		
 		loginView.clickLogin();
 		
@@ -28,7 +27,6 @@ public class LoginUsersPageTest extends BasePageTest {
 		webDriver.get(appUrl);
 		
 		LoginPage loginView = new LoginPage(webDriver);
-				
 		loginView.login("reviewer", "password");		
 		loginView.clickLogin();
 		
@@ -43,7 +41,6 @@ public class LoginUsersPageTest extends BasePageTest {
 		webDriver.get(appUrl);
 		
 		LoginPage loginView = new LoginPage(webDriver);
-				
 		loginView.login("premium", "password");		
 		loginView.clickLogin();
 		
@@ -58,7 +55,6 @@ public class LoginUsersPageTest extends BasePageTest {
 		webDriver.get(appUrl);
 		
 		LoginPage loginView = new LoginPage(webDriver);
-				
 		loginView.login("user", "password");		
 		loginView.clickLogin();
 		

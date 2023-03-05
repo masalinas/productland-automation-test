@@ -1,4 +1,4 @@
-package io.oferto.productlandautomationtest.views;
+package io.oferto.productlandautomationtest.page;
 
 import javax.annotation.PostConstruct;
 
@@ -10,10 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
-public class LoginView {
-	@Autowired
-	private WebDriver webDriver;
+//@Component
+public class LoginPage {
+	
+	//@Autowired
+	//private WebDriver webDriver;
 	
 	@FindBy(how = How.ID, using="username")
 	public WebElement txtUsername;
@@ -24,11 +25,15 @@ public class LoginView {
 	@FindBy(how = How.ID, using="kc-login")
 	public WebElement btnLogin;
 		
-	@PostConstruct
-	public void InitLoginPage() {
+	public LoginPage(WebDriver webDriver) {
 		PageFactory.initElements(webDriver, this);
 	}
 	
+	/*@PostConstruct
+	public void InitLoginPage() {
+		PageFactory.initElements(webDriver, this);
+	}*/
+		
 	public void login(String username, String password) {
 		txtUsername.sendKeys(username);
 		txtPassword.sendKeys(password);			

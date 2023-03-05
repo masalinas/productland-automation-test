@@ -20,7 +20,7 @@ import io.oferto.productlandautomationtest.page.LoginPage;
 import io.oferto.productlandautomationtest.page.MainPage;
 
 @SpringBootTest
-public class LoginPageTest {
+public class LoginUsersPageTest {
 	
 	@Value("${app.url}")
 	private String appUrl;
@@ -46,6 +46,21 @@ public class LoginPageTest {
     }
 	
 	@Test
+	public void loginAsManager() {
+		webDriver.get(appUrl);	
+		
+		LoginPage loginView = new LoginPage(webDriver);
+				
+		loginView.login("manager", "password");		
+		loginView.clickLogin();
+		
+		MainPage mainPage = new MainPage(webDriver);
+		String name = mainPage.getName();
+		
+		assertEquals("Manager, ProductLand", name);
+	}
+	
+	@Test
 	public void loginAsReviewer() {
 		webDriver.get(appUrl);
 		
@@ -59,19 +74,34 @@ public class LoginPageTest {
 		
 		assertEquals("Reviewer, ProductLand", name);
 	}
-	
+		
 	@Test
-	public void loginAsManager() {
-		webDriver.get(appUrl);	
+	public void loginAsPremium() {
+		webDriver.get(appUrl);
 		
 		LoginPage loginView = new LoginPage(webDriver);
 				
-		loginView.login("manager", "password");		
+		loginView.login("premium", "password");		
 		loginView.clickLogin();
 		
 		MainPage mainPage = new MainPage(webDriver);
 		String name = mainPage.getName();
 		
-		assertEquals("Manager, ProductLand", name);
-	}	
+		assertEquals("Premium, ProductLand", name);
+	}
+	
+	@Test
+	public void loginAsUser() {
+		webDriver.get(appUrl);
+		
+		LoginPage loginView = new LoginPage(webDriver);
+				
+		loginView.login("user", "password");		
+		loginView.clickLogin();
+		
+		MainPage mainPage = new MainPage(webDriver);
+		String name = mainPage.getName();
+		
+		assertEquals("User, ProductLand", name);
+	}
 }
